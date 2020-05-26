@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bugfender
 
-## Available Scripts
+Bugfender is a game-changing platform that logs every detail your users experience and feeds the data straight to an easy-to-use web console. Bugfender SDK is multi-platform and available for mobile and web apps, so you can use the same tool for all your apps.
 
-In the project directory, you can run:
+## Bugfender SDK React Sample
 
-### `yarn start`
+This repository contains a sample React application with Bugfender SDK to collect user logs.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If you plan to use Bugfender SDK on an **vanilla Javascript app**, visit https://github.com/bugfender/BugfenderSDK-JS-Sample
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Running the app
 
-### `yarn test`
+To check the app in your local machine, first you need to edit the code on `src/index.js` and change the `<YOUR_APP_KEY_HERE>` for you Bugfender App Key. Then you can run the app using:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Ensure Node.js 12 is installed on your system.
+- `npm ci`
+- `npm start`
 
-### `yarn build`
+_You can get an app key at [bugfender.com](https://bugfender.com/)_
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Bugfender SDK React Documentation
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### SDK Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Here are the main points to getting Bugfender working on your apps:
 
-### `yarn eject`
+- Get an app key at [bugfender.com](https://bugfender.com/)
+- `npm i @bugfender/sdk`. Install SDK npm package.
+- Init Bugfender SDK in your `index.js` file before calling `ReactDOM.render()`:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```typescript
+Bugfender.init({
+    appKey: '<YOUR_APP_KEY_HERE>',
+    // apiURL: 'https://api.bugfender.com',
+    // baseURL: 'https://dashboard.bugfender.com',
+    // overrideConsoleMethods: true,
+    // printToConsole: true,
+    // registerErrorHandler: true,
+    // version: '',
+    // build: '',
+});
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Remember to change `<YOUR_APP_KEY_HERE>` with the app key of your app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Using Bugfender
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+After you have initialized the SDK, you can start using it anywhere by just importing the `Bugfender` object:
 
-## Learn More
+```typescript
+import { Bugfender } from '@bugfender/sdk';
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+functions class App {
+    useEffect(() => {
+        Bugfender.log('App Created');
+    })
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## More information
 
-### Code Splitting
+### Docs
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+For more information on all methods available, please go to the [Bugfender JS SDK reference documentation](https://js.bugfender.com/).
 
-### Analyzing the Bundle Size
+### SDK status
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The SDK is suitable for production. Please feel free to open an issue or contact us at [bugfender.com](https://bugfender.com) .
