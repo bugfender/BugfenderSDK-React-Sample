@@ -53,7 +53,7 @@ import { Bugfender } from '@bugfender/sdk';
 functions class App {
     useEffect(() => {
         Bugfender.log('App Created');
-    })
+    }, [])
 }
 ```
 
