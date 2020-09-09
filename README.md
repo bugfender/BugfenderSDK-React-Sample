@@ -36,6 +36,8 @@ Bugfender.init({
     // overrideConsoleMethods: true,
     // printToConsole: true,
     // registerErrorHandler: true,
+    // logBrowserEvents: true,
+    // logUIEvents: true,
     // version: '',
     // build: '',
 });
