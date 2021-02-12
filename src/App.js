@@ -13,6 +13,16 @@ function App() {
     Bugfender.sendLog({ tag: 'Interaction', text: 'Click Button' });
   }
 
+  async function onGetFeedback () {
+    const result = await Bugfender.getUserFeedback();
+
+    if (result.isSent) {
+        // Sent!
+    } else {
+        // User cancelled feedback
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,6 +32,9 @@ function App() {
         </p>
         <button onClick={onButtonClick}>
           CLICK ME!
+        </button>
+        <button onClick={onGetFeedback}>
+          Get Feedback
         </button>
         <a className="App-link" href="https://bugfender.com" target="_blank" rel="noopener noreferrer">
           Learn About Bugfender
