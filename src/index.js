@@ -8,6 +8,7 @@ Bugfender.init({
   appKey: '<YOUR_APP_KEY_HERE>',
   version: '0.1',
   build: '20200526',
+  deviceName: 'Bugfender React Example',
 });
 Bugfender.log("React App Ready");
 
