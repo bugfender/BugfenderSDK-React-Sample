@@ -30,6 +30,11 @@ function App() {
         <p>
           BugfenderSDK React Sample
         </p>
+        <div>
+          <input placeholder="Email"></input>
+          <input placeholder="Password" type="password"></input>
+          <input placeholder="Sensitive" data-bf-ignore-keypress></input>
+        </div>
         <button onClick={onButtonClick}>
           CLICK ME!
         </button>
