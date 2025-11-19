@@ -13,6 +13,11 @@ function App() {
     Bugfender.sendLog({ tag: 'Interaction', text: 'Click Button' });
   }
 
+  function onForceSend () {
+    Bugfender.forceSendOnce();
+    Bugfender.log('Manual upload triggered');
+  }
+
   async function onGetFeedback () {
     const result = await Bugfender.getUserFeedback();
 
@@ -26,21 +31,33 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          BugfenderSDK React Sample
-        </p>
-        <div>
-          <input placeholder="Email"></input>
-          <input placeholder="Password" type="password"></input>
-          <input placeholder="Sensitive" data-bf-ignore-keypress></input>
+        <div className="App-hero">
+          <img src={logo} className="App-logo" alt="Bugfender icon" />
+          <div>
+            <h1>BugfenderSDK React Sample</h1>
+            <p className="App-tagline">
+              Wire Bugfender into your UI, capture user feedback, and inspect logs instantly.
+            </p>
+          </div>
         </div>
-        <button onClick={onButtonClick}>
-          CLICK ME!
-        </button>
-        <button onClick={onGetFeedback}>
-          Get Feedback
-        </button>
+        <div className="App-card">
+          <div className="App-form">
+            <input placeholder="Email" type="email" />
+            <input placeholder="Password" type="password" />
+            <input placeholder="Sensitive (ignored)" data-bf-ignore-keypress />
+          </div>
+          <div className="App-actions">
+            <button className="primary" onClick={onButtonClick}>
+              Send Test Log
+            </button>
+            <button className="secondary" onClick={onGetFeedback}>
+              Get Feedback
+            </button>
+            <button className="secondary ghost" onClick={onForceSend}>
+              Force Upload
+            </button>
+          </div>
+        </div>
         <a className="App-link" href="https://bugfender.com" target="_blank" rel="noopener noreferrer">
           Learn About Bugfender
         </a>
